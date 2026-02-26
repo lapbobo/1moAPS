@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="一模智造APS — 专为中小模具企业打造的工业云APS排程系统。基于谷歌OR-Tools与AI大模型，以2599元/月订阅制打破百万级软件垄断，5分钟内完成智能排程。">
+    <meta name="keywords" content="APS排程系统,模具制造,智能排产,OR-Tools,AI排程,云APS,模具工厂数字化,一模智造">
+    <meta name="author" content="一模智造">
+    <title>一模智造APS — 重塑计划精度，智造模具未来 | 工业云APS智能排程系统</title>
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="一模智造APS — 工业云APS智能排程系统">
+    <meta property="og:description" content="专为中小模具企业打造，基于OR-Tools+AI Agent，2599元/月订阅制，5分钟内完成智能排程。">
+    <meta property="og:type" content="website">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;700;900&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>⚙️</text></svg>">
+</head>
+<body>
+
+    <!-- ============================================================ -->
+    <!-- Navigation -->
+    <!-- ============================================================ -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" id="nav-logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="2" y="2" width="36" height="36" rx="8" stroke="url(#logoGrad)" stroke-width="2.5"/>
+                        <path d="M12 20L18 14L26 22L20 28Z" fill="url(#logoGrad)"/>
+                        <circle cx="20" cy="20" r="3" fill="#00f0ff"/>
+                        <defs>
+                            <linearGradient id="logoGrad" x1="0" y1="0" x2="40" y2="40">
+                                <stop offset="0%" stop-color="#00f0ff"/>
+                                <stop offset="100%" stop-color="#0066ff"/>
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                </div>
+                <span class="logo-text">一模智造<span class="logo-highlight">APS</span></span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#pain-points" class="nav-link">行业痛点</a>
+                <a href="#tech-solution" class="nav-link">技术方案</a>
+                <a href="#pricing" class="nav-link">商业模式</a>
+                <a href="#results" class="nav-link">成效见证</a>
+                <a href="#contact" class="nav-link nav-cta-link">免费试用</a>
+            </div>
+            <button class="nav-toggle" id="nav-toggle" aria-label="菜单">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ============================================================ -->
+    <!-- Section 1: Hero -->
+    <!-- ============================================================ -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <canvas id="hero-canvas"></canvas>
+            <div class="hero-grid-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">
+                <span class="badge-dot"></span>
+                基于谷歌开源 OR-Tools 求解器
+            </div>
+            <h1 class="hero-title">
+                重塑计划精度<br>
+                <span class="hero-title-gradient">智造模具未来</span>
+            </h1>
+            <p class="hero-subtitle">
+                专为中小模具企业量身打造的工业云APS。基于谷歌开源求解器OR-Tools与AI大模型赋能，以<strong>"分钟级"</strong>排程与<strong>"千元级"</strong>订阅成本，打破百万级软件垄断，开启您的数据驱动引擎。
+            </p>
+
+            <!-- Dynamic Stats -->
+            <div class="hero-stats">
+                <div class="stat-item" id="stat-speed">
+                    <div class="stat-number"><span class="counter" data-target="5">0</span>分钟内</div>
+                    <div class="stat-label">排程提速</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" id="stat-delay">
+                    <div class="stat-number"><span class="counter" data-target="8">0</span>%以下</div>
+                    <div class="stat-label">订单延期率</div>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat-item" id="stat-oee">
+                    <div class="stat-number"><span class="counter" data-target="85">0</span>%+</div>
+                    <div class="stat-label">OEE跃升</div>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div class="hero-cta">
+                <a href="#contact" class="btn btn-primary" id="cta-trial">
+                    <span class="btn-glow"></span>
+                    免费开启30天智能排程试用
+                    <span class="btn-sub">支持50台设备内一键导入</span>
+                </a>
+                <a href="#contact" class="btn btn-outline" id="cta-report">
+                    <span class="btn-icon">📊</span>
+                    测一测：获取专属排程健康度报告
+                </a>
+            </div>
+        </div>
+        <div class="hero-scroll-hint">
+            <span>向下滚动探索</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Section 2: Pain Points -->
+    <!-- ============================================================ -->
+    <section class="section section-dark" id="pain-points">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">行业痛点</span>
+                <h2 class="section-title">
+                    告别<span class="text-cyan">"黑盒排产"</span><br>
+                    打破人工排程的算力极限
+                </h2>
+                <p class="section-desc">
+                    模具制造平均单套涉及<strong>5个零件</strong>、高达<strong>12道工序</strong>，每日超<strong class="text-cyan">3600道</strong>离散工序的精准博弈，早已压垮了传统的人工调度。
+                </p>
+            </div>
+
+            <!-- Pain Point Cards -->
+            <div class="pain-cards">
+                <div class="pain-card" id="pain-card-1">
+                    <div class="pain-card-front">
+                        <div class="pain-icon">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <circle cx="24" cy="24" r="20" stroke="#ff4444" stroke-width="2" stroke-dasharray="4 4"/>
+                                <path d="M24 14v12l8 4" stroke="#ff4444" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="pain-tag">延期率 &gt;30%</div>
+                        <h3 class="pain-title">插单响应滞后</h3>
+                        <p class="pain-brief">人工重排耗时4-8小时，牵一发动全身</p>
+                        <div class="pain-flip-hint">了解详情 →</div>
+                    </div>
+                    <div class="pain-card-back">
+                        <div class="pain-back-icon">⚠️</div>
+                        <p class="pain-detail">
+                            面对设备故障或临时急单，人工重排需耗时<strong>4-8小时</strong>，甚至按天计算，导致后续订单产生<strong>多米诺骨牌式的延误</strong>。每一次插单都是对整条产线的"地震"。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pain-card" id="pain-card-2">
+                    <div class="pain-card-front">
+                        <div class="pain-icon">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <rect x="8" y="8" width="32" height="32" rx="4" stroke="#ff8800" stroke-width="2" stroke-dasharray="4 4"/>
+                                <path d="M16 32L32 16" stroke="#ff8800" stroke-width="2.5" stroke-linecap="round"/>
+                                <path d="M16 16L32 32" stroke="#ff8800" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="pain-tag">误差率 &gt;40%</div>
+                        <h3 class="pain-title">人工误差高发</h3>
+                        <p class="pain-brief">经验驱动，工时与设备冲突频发</p>
+                        <div class="pain-flip-hint">了解详情 →</div>
+                    </div>
+                    <div class="pain-card-back">
+                        <div class="pain-back-icon">⚠️</div>
+                        <p class="pain-detail">
+                            高度依赖计划员个人经验，多品种小批量订单下极易<strong>错配物料与工艺</strong>，工时重叠、设备冲突频发。一位老师傅的离职，可能就是整个排程体系的崩塌。
+                        </p>
+                    </div>
+                </div>
+
+                <div class="pain-card" id="pain-card-3">
+                    <div class="pain-card-front">
+                        <div class="pain-icon">
+                            <svg viewBox="0 0 48 48" fill="none">
+                                <path d="M24 8v32M8 24h32" stroke="#ff4444" stroke-width="2" opacity="0.3"/>
+                                <path d="M12 36C12 36 16 20 24 20C32 20 36 36 36 36" stroke="#ff6644" stroke-width="2.5" stroke-linecap="round"/>
+                                <circle cx="24" cy="20" r="3" fill="#ff6644"/>
+                            </svg>
+                        </div>
+                        <div class="pain-tag">OEE &lt; 60%</div>
+                        <h3 class="pain-title">资源严重浪费</h3>
+                        <p class="pain-brief">忙时过载，闲时闲置，利润被吞噬</p>
+                        <div class="pain-flip-hint">了解详情 →</div>
+                    </div>
+                    <div class="pain-card-back">
+                        <div class="pain-back-icon">⚠️</div>
+                        <p class="pain-detail">
+                            粗放匹配导致"忙时设备过载停机，闲时彻底闲置"，<strong>人工闲置率超25%</strong>，吞噬企业微薄利润。每月数十万的隐性浪费，正在悄无声息地蚕食你的竞争力。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Section 3: Tech Solution -->
+    <!-- ============================================================ -->
+    <section class="section section-gradient" id="tech-solution">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">核心技术</span>
+                <h2 class="section-title">
+                    融合核心算法与大模型<br>
+                    打造模具专属<span class="text-cyan">"超级外脑"</span>
+                </h2>
+            </div>
+
+            <div class="tech-layout">
+                <!-- Left: Feature tabs -->
+                <div class="tech-tabs">
+                    <button class="tech-tab active" data-tab="engine" id="tab-engine">
+                        <div class="tech-tab-icon">⚙️</div>
+                        <div class="tech-tab-content">
+                            <h4>OR-Tools 多约束智能排程引擎</h4>
+                            <p>整数线性规划，全局最优解</p>
+                        </div>
+                        <div class="tech-tab-arrow">›</div>
+                    </button>
+                    <button class="tech-tab" data-tab="agent" id="tab-agent">
+                        <div class="tech-tab-icon">🧠</div>
+                        <div class="tech-tab-content">
+                            <h4>AI Agent 工艺智能体</h4>
+                            <p>大模型推荐最优加工路线</p>
+                        </div>
+                        <div class="tech-tab-arrow">›</div>
+                    </button>
+                    <button class="tech-tab" data-tab="dynamic" id="tab-dynamic">
+                        <div class="tech-tab-icon">⚡</div>
+                        <div class="tech-tab-content">
+                            <h4>分钟级动态急插单响应</h4>
+                            <p>5分钟内完成复杂重排</p>
+                        </div>
+                        <div class="tech-tab-arrow">›</div>
+                    </button>
+                    <button class="tech-tab" data-tab="library" id="tab-library">
+                        <div class="tech-tab-icon">📊</div>
+                        <div class="tech-tab-content">
+                            <h4>"模具DNA"工艺库</h4>
+                            <p>零代码、即插即用</p>
+                        </div>
+                        <div class="tech-tab-arrow">›</div>
+                    </button>
+                </div>
+
+                <!-- Right: Detail panels -->
+                <div class="tech-panels">
+                    <div class="tech-panel active" id="panel-engine">
+                        <div class="tech-panel-header">
+                            <h3>基于OR-Tools的多约束智能排程引擎</h3>
+                            <span class="tech-badge">核心引擎</span>
+                        </div>
+                        <p class="tech-panel-desc">
+                            运用底层<strong>整数线性规划算法（ILP）</strong>，统筹交期、设备产能、物料供应与员工技能等多重约束。告别工时重叠，自动寻找全局最优解。
+                        </p>
+                        <div class="tech-features">
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                多目标优化：交期、产能、成本同步求解
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                约束消解：设备/人员/物料三维联动
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                谷歌级开源技术底座，可靠稳定
+                            </div>
+                        </div>
+                        <div class="tech-visual">
+                            <div class="gantt-demo">
+                                <div class="gantt-header">
+                                    <span>智能排程甘特图</span>
+                                    <div class="gantt-controls">
+                                        <span class="gantt-dot green"></span>
+                                        <span class="gantt-dot yellow"></span>
+                                        <span class="gantt-dot red"></span>
+                                    </div>
+                                </div>
+                                <div class="gantt-body">
+                                    <div class="gantt-row">
+                                        <span class="gantt-label">CNC-01</span>
+                                        <div class="gantt-bars">
+                                            <div class="gantt-bar bar-blue" style="left:5%;width:25%">A-001</div>
+                                            <div class="gantt-bar bar-cyan" style="left:32%;width:18%">B-003</div>
+                                            <div class="gantt-bar bar-purple" style="left:55%;width:30%">C-012</div>
+                                        </div>
+                                    </div>
+                                    <div class="gantt-row">
+                                        <span class="gantt-label">CNC-02</span>
+                                        <div class="gantt-bars">
+                                            <div class="gantt-bar bar-green" style="left:0%;width:30%">A-002</div>
+                                            <div class="gantt-bar bar-orange" style="left:35%;width:22%">D-007</div>
+                                            <div class="gantt-bar bar-blue" style="left:62%;width:25%">E-015</div>
+                                        </div>
+                                    </div>
+                                    <div class="gantt-row">
+                                        <span class="gantt-label">EDM-01</span>
+                                        <div class="gantt-bars">
+                                            <div class="gantt-bar bar-purple" style="left:8%;width:20%">F-004</div>
+                                            <div class="gantt-bar bar-cyan" style="left:30%;width:35%">G-009</div>
+                                            <div class="gantt-bar bar-green" style="left:70%;width:20%">H-011</div>
+                                        </div>
+                                    </div>
+                                    <div class="gantt-row">
+                                        <span class="gantt-label">磨床-01</span>
+                                        <div class="gantt-bars">
+                                            <div class="gantt-bar bar-orange" style="left:3%;width:15%">I-006</div>
+                                            <div class="gantt-bar bar-blue" style="left:22%;width:28%">J-008</div>
+                                            <div class="gantt-bar bar-purple" style="left:55%;width:35%">K-013</div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-panel" id="panel-agent">
+                        <div class="tech-panel-header">
+                            <h3>行业首创：AI Agent 工艺智能体</h3>
+                            <span class="tech-badge badge-ai">AI 驱动</span>
+                        </div>
+                        <p class="tech-panel-desc">
+                            基于Qwen等大语言模型深度学习海量历史工单数据，仅需输入零件参数，AI即可自动生成并推荐最优加工路线（含标准/非标工序），<strong>推荐准确率高达90%+</strong>。
+                        </p>
+                        <div class="tech-features">
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                基于LLM大模型的工艺知识图谱
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                一键输入零件参数，自动输出工艺路线
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                持续学习企业专有工艺数据
+                            </div>
+                        </div>
+                        <div class="tech-visual">
+                            <div class="ai-demo">
+                                <div class="ai-chat">
+                                    <div class="ai-msg user-msg">
+                                        <span class="msg-avatar">👤</span>
+                                        <div class="msg-bubble">零件：前模仁，材料S136，精度0.01mm</div>
+                                    </div>
+                                    <div class="ai-msg ai-msg-reply">
+                                        <span class="msg-avatar">🤖</span>
+                                        <div class="msg-bubble">
+                                            <strong>推荐加工路线：</strong><br>
+                                            开粗(CNC) → 半精(CNC) → 热处理 → 精加工(CNC) → EDM → 线切割 → 抛光 → 检测<br>
+                                            <span class="msg-confidence">置信度: 94.2% | 预估工时: 48h</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-panel" id="panel-dynamic">
+                        <div class="tech-panel-header">
+                            <h3>分钟级动态急插单响应</h3>
+                            <span class="tech-badge badge-fast">极速响应</span>
+                        </div>
+                        <p class="tech-panel-desc">
+                            告别"牵一发而动全身"。系统实时动态计算扰动影响，<strong>5分钟内完成复杂插单重排</strong>，优先保障关键路径，将整体响应速度提升10倍。
+                        </p>
+                        <div class="tech-features">
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                实时扰动影响分析
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                关键路径优先保障策略
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                10x 排程响应速度提升
+                            </div>
+                        </div>
+                        <div class="tech-visual">
+                            <div class="speed-demo">
+                                <div class="speed-compare">
+                                    <div class="speed-item speed-old">
+                                        <div class="speed-label">传统人工排程</div>
+                                        <div class="speed-bar">
+                                            <div class="speed-fill speed-fill-slow"></div>
+                                        </div>
+                                        <div class="speed-time">4~8 小时</div>
+                                    </div>
+                                    <div class="speed-vs">VS</div>
+                                    <div class="speed-item speed-new">
+                                        <div class="speed-label">一模智造APS</div>
+                                        <div class="speed-bar">
+                                            <div class="speed-fill speed-fill-fast"></div>
+                                        </div>
+                                        <div class="speed-time">≤ 5 分钟</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tech-panel" id="panel-library">
+                        <div class="tech-panel-header">
+                            <h3>开箱即用的"模具DNA"工艺库</h3>
+                            <span class="tech-badge badge-lib">即插即用</span>
+                        </div>
+                        <p class="tech-panel-desc">
+                            摒弃传统工业软件沉重的"全家桶"，免去长达数月的二次开发。系统预置模具典型工艺路线、特定机床加工能力参数，真正做到<strong>零代码、即插即用</strong>。
+                        </p>
+                        <div class="tech-features">
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                预置模具行业典型工艺模板
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                主流机床参数库内置
+                            </div>
+                            <div class="tech-feature">
+                                <span class="feature-check">✓</span>
+                                无需IT团队，无需二次开发
+                            </div>
+                        </div>
+                        <div class="tech-visual">
+                            <div class="library-demo">
+                                <div class="lib-grid">
+                                    <div class="lib-item">
+                                        <div class="lib-icon">🔧</div>
+                                        <span>注塑模</span>
+                                    </div>
+                                    <div class="lib-item">
+                                        <div class="lib-icon">⚙️</div>
+                                        <span>冲压模</span>
+                                    </div>
+                                    <div class="lib-item">
+                                        <div class="lib-icon">🏭</div>
+                                        <span>压铸模</span>
+                                    </div>
+                                    <div class="lib-item">
+                                        <div class="lib-icon">🔩</div>
+                                        <span>吹塑模</span>
+                                    </div>
+                                    <div class="lib-item">
+                                        <div class="lib-icon">📐</div>
+                                        <span>精密模</span>
+                                    </div>
+                                    <div class="lib-item active-lib">
+                                        <div class="lib-icon">➕</div>
+                                        <span>自定义</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Section 4: Business Model / Pricing -->
+    <!-- ============================================================ -->
+    <section class="section section-dark" id="pricing">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">颠覆性商业模式</span>
+                <h2 class="section-title">
+                    摒弃百万级买断费<br>
+                    将数字化门槛降至<span class="text-cyan">"千元级"</span>
+                </h2>
+            </div>
+
+            <!-- Comparison -->
+            <div class="pricing-compare">
+                <div class="pricing-old">
+                    <div class="pricing-card-label">传统工业软件</div>
+                    <div class="pricing-card-bad">
+                        <div class="pricing-cross">✕</div>
+                        <div class="pricing-amount-old">¥50~200万</div>
+                        <div class="pricing-mode">一次性买断</div>
+                        <ul class="pricing-list-bad">
+                            <li>本地服务器采购部署</li>
+                            <li>3~6个月实施周期</li>
+                            <li>专职IT运维团队</li>
+                            <li>高额年度维护费</li>
+                            <li>二次开发另行计费</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pricing-vs-badge">
+                    <span>VS</span>
+                </div>
+
+                <div class="pricing-new">
+                    <div class="pricing-card-label label-highlight">一模智造APS</div>
+                    <div class="pricing-card-good">
+                        <div class="pricing-popular">🔥 高性价比之选</div>
+                        <div class="pricing-amount-new">
+                            <span class="currency">¥</span>
+                            <span class="amount">2,599</span>
+                            <span class="period">/月</span>
+                        </div>
+                        <div class="pricing-coverage">覆盖 50台设备 + 80名员工</div>
+                        <ul class="pricing-list-good">
+                            <li><span class="check-icon">✓</span> 全云端部署，零硬件投入</li>
+                            <li><span class="check-icon">✓</span> 即开即用，1天完成上线</li>
+                            <li><span class="check-icon">✓</span> 阿里云安全保障</li>
+                            <li><span class="check-icon">✓</span> Web+APP双端协同</li>
+                            <li><span class="check-icon">✓</span> 按需扩容，杜绝浪费</li>
+                            <li><span class="check-icon">✓</span> TCO压减 87%</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-primary btn-pricing" id="cta-pricing">
+                            <span class="btn-glow"></span>
+                            立即开启免费试用
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Value Adds -->
+            <div class="value-adds">
+                <div class="value-card" id="value-cloud">
+                    <div class="value-icon">☁️</div>
+                    <h4>全云端架构</h4>
+                    <p>B/S架构+阿里云部署，无需购买昂贵的本地服务器与IT运维人员。电脑Web端+手机APP双端协同，随时随地掌控产线。</p>
+                </div>
+                <div class="value-card" id="value-cost">
+                    <div class="value-icon">💰</div>
+                    <h4>极致性价比</h4>
+                    <p>按需叠加扩容，杜绝资源闲置浪费，将企业TCO（总拥有成本）压减87%。同等功能，成本仅为传统软件的1/10。</p>
+                </div>
+                <div class="value-card" id="value-service">
+                    <div class="value-icon">🤝</div>
+                    <h4>陪伴式增值服务</h4>
+                    <p>平台提供"AI高级工艺包"生态共享服务，并为进阶企业提供"一年数字化陪跑计划"，确保系统真正在车间落地见效。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Section 5: Results -->
+    <!-- ============================================================ -->
+    <section class="section section-results" id="results">
+        <div class="section-container">
+            <div class="section-header">
+                <span class="section-tag">成效见证</span>
+                <h2 class="section-title">
+                    真实车间AB实测<br>
+                    重塑<span class="text-cyan">降本增效</span>曲线
+                </h2>
+                <p class="section-desc">
+                    在惠州某典型模具科技企业（400+员工，200+台设备）为期一个月的严格AB对照测试中，云APS交出了无可辩驳的提效答卷：
+                </p>
+            </div>
+
+            <!-- Result Dashboard -->
+            <div class="results-dashboard">
+                <div class="result-card result-oee" id="result-oee">
+                    <div class="result-card-inner">
+                        <div class="result-before">
+                            <span class="result-label">测试前</span>
+                            <span class="result-value-before">
+                                &lt;50%
+                            </span>
+                        </div>
+                        <div class="result-arrow">
+                            <svg viewBox="0 0 40 20" fill="none">
+                                <path d="M0 10H35M27 2l8 8-8 8" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="result-after">
+                            <span class="result-label">测试后</span>
+                            <span class="result-value-after counter-result" data-target="85">0</span>
+                            <span class="result-unit">%+</span>
+                        </div>
+                    </div>
+                    <div class="result-name">产能利用率 (OEE)</div>
+                    <div class="result-progress">
+                        <div class="result-progress-fill" data-width="85"></div>
+                    </div>
+                </div>
+
+                <div class="result-card result-delay" id="result-delay">
+                    <div class="result-card-inner">
+                        <div class="result-before">
+                            <span class="result-label">测试前</span>
+                            <span class="result-value-before">
+                                &gt;40%
+                            </span>
+                        </div>
+                        <div class="result-arrow">
+                            <svg viewBox="0 0 40 20" fill="none">
+                                <path d="M0 10H35M27 2l8 8-8 8" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="result-after">
+                            <span class="result-label">测试后</span>
+                            <span class="result-value-after counter-result" data-target="8">0</span>
+                            <span class="result-unit">%</span>
+                        </div>
+                    </div>
+                    <div class="result-name">急插单延期率</div>
+                    <div class="result-progress">
+                        <div class="result-progress-fill" data-width="92" style="background: linear-gradient(90deg, #00f0ff, #00ff88);"></div>
+                    </div>
+                </div>
+
+                <div class="result-card result-time" id="result-time">
+                    <div class="result-card-inner">
+                        <div class="result-before">
+                            <span class="result-label">测试前</span>
+                            <span class="result-value-before">
+                                1~2天
+                            </span>
+                        </div>
+                        <div class="result-arrow">
+                            <svg viewBox="0 0 40 20" fill="none">
+                                <path d="M0 10H35M27 2l8 8-8 8" stroke="#00f0ff" stroke-width="2.5" stroke-linecap="round"/>
+                            </svg>
+                        </div>
+                        <div class="result-after">
+                            <span class="result-label">测试后</span>
+                            <span class="result-value-after counter-result" data-target="5">0</span>
+                            <span class="result-unit">分钟</span>
+                        </div>
+                    </div>
+                    <div class="result-name">排程执行耗时</div>
+                    <div class="result-progress">
+                        <div class="result-progress-fill" data-width="95" style="background: linear-gradient(90deg, #00f0ff, #a855f7);"></div>
+                    </div>
+                </div>
+
+                <div class="result-card result-money" id="result-money">
+                    <div class="result-card-inner">
+                        <div class="result-savings">
+                            <div class="savings-item">
+                                <span class="savings-label">年节省人力成本</span>
+                                <span class="savings-value">&gt; <span class="counter-result" data-target="47">0</span> 万元</span>
+                            </div>
+                            <div class="savings-divider"></div>
+                            <div class="savings-item">
+                                <span class="savings-label">减少延期违约赔款</span>
+                                <span class="savings-value">&gt; <span class="counter-result" data-target="210">0</span> 万元</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="result-name">直接经济收益（单厂/年）</div>
+                    <div class="result-progress">
+                        <div class="result-progress-fill" data-width="100" style="background: linear-gradient(90deg, #fbbf24, #f59e0b, #ef4444);"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Section 6: Footer CTA -->
+    <!-- ============================================================ -->
+    <section class="section section-cta" id="contact">
+        <div class="section-container">
+            <div class="cta-content">
+                <h2 class="cta-title">
+                    您的竞争对手，正在通过智能排程<br>
+                    <span class="text-cyan">抢占高利润订单</span>
+                </h2>
+                <p class="cta-subtitle">
+                    立即加入一模智造，我们将为您提供从系统部署、工艺库导入到员工培训的一站式"低门槛"转型支持。
+                </p>
+            </div>
+
+            <div class="cta-grid">
+                <div class="cta-card" id="cta-form-card">
+                    <div class="cta-card-icon">🚀</div>
+                    <h3>获取排程健康度测评</h3>
+                    <p>填写信息，免费获取智能优化方案</p>
+                    <form class="cta-form" id="contact-form">
+                        <div class="form-group">
+                            <input type="text" placeholder="您的姓名" required id="form-name">
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="联系电话" required id="form-phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="公司名称" required id="form-company">
+                        </div>
+                        <div class="form-group">
+                            <select id="form-scale">
+                                <option value="">设备规模</option>
+                                <option value="1-20">1-20台</option>
+                                <option value="20-50">20-50台</option>
+                                <option value="50-100">50-100台</option>
+                                <option value="100+">100台以上</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-form" id="form-submit">
+                            <span class="btn-glow"></span>
+                            提交并获取方案
+                        </button>
+                    </form>
+                </div>
+
+                <div class="cta-actions">
+                    <a href="#" class="cta-action-card" id="cta-register">
+                        <div class="cta-action-icon">🛒</div>
+                        <div class="cta-action-text">
+                            <h4>免费体验30天</h4>
+                            <p>云APS高级版全功能体验</p>
+                        </div>
+                        <span class="cta-action-arrow">→</span>
+                    </a>
+                    <a href="#" class="cta-action-card" id="cta-call">
+                        <div class="cta-action-icon">📞</div>
+                        <div class="cta-action-text">
+                            <h4>预约1v1咨询</h4>
+                            <p>大客户经理政策补贴指导</p>
+                        </div>
+                        <span class="cta-action-arrow">→</span>
+                    </a>
+                    <a href="#" class="cta-action-card" id="cta-demo">
+                        <div class="cta-action-icon">🎬</div>
+                        <div class="cta-action-text">
+                            <h4>观看产品演示</h4>
+                            <p>5分钟了解核心功能</p>
+                        </div>
+                        <span class="cta-action-arrow">→</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================ -->
+    <!-- Footer -->
+    <!-- ============================================================ -->
+    <footer class="footer" id="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <rect x="2" y="2" width="36" height="36" rx="8" stroke="url(#logoGrad2)" stroke-width="2.5"/>
+                                <path d="M12 20L18 14L26 22L20 28Z" fill="url(#logoGrad2)"/>
+                                <circle cx="20" cy="20" r="3" fill="#00f0ff"/>
+                                <defs>
+                                    <linearGradient id="logoGrad2" x1="0" y1="0" x2="40" y2="40">
+                                        <stop offset="0%" stop-color="#00f0ff"/>
+                                        <stop offset="100%" stop-color="#0066ff"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <span class="logo-text">一模智造<span class="logo-highlight">APS</span></span>
+                    </div>
+                    <p class="footer-desc">专为中小模具企业打造的工业云APS智能排程系统</p>
+                </div>
+
+                <div class="footer-links-grid">
+                    <div class="footer-col">
+                        <h5>产品</h5>
+                        <a href="#tech-solution">智能排程引擎</a>
+                        <a href="#tech-solution">AI工艺智能体</a>
+                        <a href="#tech-solution">模具工艺库</a>
+                        <a href="#pricing">定价方案</a>
+                    </div>
+                    <div class="footer-col">
+                        <h5>解决方案</h5>
+                        <a href="#pain-points">注塑模具</a>
+                        <a href="#pain-points">冲压模具</a>
+                        <a href="#pain-points">压铸模具</a>
+                        <a href="#pain-points">精密模具</a>
+                    </div>
+                    <div class="footer-col">
+                        <h5>关于我们</h5>
+                        <a href="#">公司介绍</a>
+                        <a href="#">技术博客</a>
+                        <a href="#">合作伙伴</a>
+                        <a href="#contact">联系我们</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Badges -->
+            <div class="footer-trust">
+                <div class="trust-badge" id="badge-copyright">
+                    <div class="trust-shield">🛡️</div>
+                    <span>已获软件著作权认证</span>
+                </div>
+                <div class="trust-badge" id="badge-patent">
+                    <div class="trust-shield">🔬</div>
+                    <span>核心算法专利申请中</span>
+                </div>
+                <div class="trust-badge" id="badge-aliyun">
+                    <div class="trust-shield">☁️</div>
+                    <span>阿里云安全部署</span>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2025 一模智造 版权所有 | 粤ICP备XXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>
